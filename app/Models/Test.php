@@ -22,7 +22,7 @@ class Test extends Model
         return $this->belongsTo(TelegramUser::class);
     }
 
-    public function answers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function usersAnswers(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Answer::class);
     }

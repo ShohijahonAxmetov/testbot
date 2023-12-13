@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('username')->nullable();
             $table->boolean('is_premium')->nullable();
             $table->boolean('added_to_attachment_menu')->nullable();
+
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

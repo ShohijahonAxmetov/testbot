@@ -1,6 +1,14 @@
 <?php
 
-use Telegram\Bot\Commands\HelpCommand;
+// use Telegram\Bot\Commands\HelpCommand;
+use App\Http\Controllers\telegram\Commands\StartCommand;
+use App\Http\Controllers\telegram\Commands\NewTest\NewTestCommand;
+use App\Http\Controllers\telegram\Commands\SendAnswerCommand;
+use App\Http\Controllers\telegram\Commands\MyTestsCommand;
+use App\Http\Controllers\telegram\Commands\MyAnswersCommand;
+use App\Http\Controllers\telegram\Commands\HelpCommand;
+use App\Http\Controllers\telegram\Commands\UpdateNameCommand;
+use App\Http\Controllers\telegram\Commands\DeveloperCommand;
 
 return [
     /*
@@ -36,7 +44,15 @@ return [
             'certificate_path' => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url' => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
             'commands' => [
-                //Acme\Project\Commands\MyTelegramBot\BotCommand::class
+                // HelpCommand::class,
+                StartCommand::class,
+                NewTestCommand::class,
+                SendAnswerCommand::class,
+                MyTestsCommand::class,
+                MyAnswersCommand::class,
+                HelpCommand::class,
+                UpdateNameCommand::class,
+                DeveloperCommand::class,
             ],
         ],
 
@@ -126,7 +142,7 @@ return [
     |
     */
     'commands' => [
-        HelpCommand::class,
+        // HelpCommand::class,
     ],
 
     /*

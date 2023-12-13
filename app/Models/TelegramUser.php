@@ -16,7 +16,9 @@ class TelegramUser extends Model
         'last_name',
         'username',
         'is_premium',
-        'added_to_attachment_menu'
+        'added_to_attachment_menu',
+
+        'name',
     ];
 
     public function tests(): \Illuminate\Database\Eloquent\Relations\HasMany
