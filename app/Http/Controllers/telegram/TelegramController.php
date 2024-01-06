@@ -206,7 +206,7 @@ class TelegramController extends Controller
                 }
 
                 // javobni saqlash
-                Answer::create([
+                $answer = Answer::create([
                     'telegram_user_id' => TelegramUser::where('telegram_id', $update->message->from->id)->first()->id,
                     'test_id' => $data['data']['test_id']['javob'],
                     'answer' => $update->message->text,
@@ -215,7 +215,7 @@ class TelegramController extends Controller
 
                 Cache::forget($chatId);
 
-                $this->sendMessage($chatId, '<b>2416</b> raqamli testdagi natijangiz:'.PHP_EOL.PHP_EOL.'Yuborgan javoblaringiz: abcabdcaaaqq'.PHP_EOL.'To\'g\'ri javoblar soni: <b>10 ta</b>'.PHP_EOL.PHP_EOL.'<i>Test haqida to\'liq ma\'lumotni /mening_javoblarim buyrug\'i bilan bilib olishingiz mumkin.</i>');
+                $this->sendMessage($chatId, '<b>'.$data['data']['test_id']['javob'].'</b> raqamli testdagi natijangiz:'.PHP_EOL.PHP_EOL.'Yuborgan javoblaringiz: '.$update->message->text.PHP_EOL.'To\'g\'ri javoblar soni: <b>'.$answer->points.' ta</b>'.PHP_EOL.PHP_EOL.'<i>Test haqida to\'liq ma\'lumotni /mening_javoblarim buyrug\'i bilan bilib olishingiz mumkin.</i>');
 
             } else if ($data['data']['javoblar']['savol']) {
                 $test = Test::where('id', $update->message->text)->first();
